@@ -2,6 +2,8 @@
 
 module Types
   class DiceType < Types::BaseObject
+    implements Types::BaseInterface
+
     field :id, ID, null: false
     field :value, Integer, null: false
     field :dice, String, null: false, method: :kind
