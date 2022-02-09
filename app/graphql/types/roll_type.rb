@@ -14,5 +14,9 @@ module Types
     def dices_count
       object.dices.size
     end
+
+    def total
+      object.dices.sum(:value)
+    end
   end
 end

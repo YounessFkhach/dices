@@ -5,8 +5,7 @@ module Mutations
     type Types::RollType
 
     def resolve(dices:)
-      # TODO: make the total auto counted on before save
-      roll = Roll.new(total: 0)
+      roll = Roll.new
 
       # build the dices
       dices_to_create = dices.split('+').map do |dice_formula|
