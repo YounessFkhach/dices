@@ -13,12 +13,12 @@ module Types
       Roll.all
     end
 
-    #field :roll, Types::RollType, null: false do
-    #  argument :id, ID, required: true
-    #end
+    field :roll, Types::RollType, null: false do
+      argument :id, ID, required: true
+    end
 
-    #def roll(id:)
-    #  Roll.find(id)
-    #end
+    def roll(id:)
+      Roll.find(id)
+    end
   end
 end
