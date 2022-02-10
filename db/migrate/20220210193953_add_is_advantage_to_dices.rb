@@ -1,0 +1,5 @@
+class AddIsAdvantageToDices < ActiveRecord::Migration[5.2]
+  def change
+    add_column :dices, :is_advantage, :boolean
+  end
+end

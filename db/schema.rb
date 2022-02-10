@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_09_214542) do
+ActiveRecord::Schema.define(version: 2022_02_10_201226) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,12 +21,14 @@ ActiveRecord::Schema.define(version: 2022_02_09_214542) do
     t.bigint "roll_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "is_advantage", default: false
     t.index ["roll_id"], name: "index_dices_on_roll_id"
   end
 
   create_table "rolls", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "advantage_type", default: 0
   end
 
   add_foreign_key "dices", "rolls"

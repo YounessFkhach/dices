@@ -1,7 +1,7 @@
 module Mutations
   class RollMutation < Mutations::BaseMutation
     argument :dices, String, required: true
-    argument :advantage, Types::AdvantageType, required: false, default_value: 'none'
+    argument :advantage, Types::AdvantageType, required: false, default_value: 'normal'
 
     type Types::RollType
 
