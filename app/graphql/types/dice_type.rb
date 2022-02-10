@@ -9,5 +9,6 @@ module Types
     field :dice, String, null: false, method: :kind
     field :rolled_at, GraphQL::Types::ISO8601DateTime, null: false, method: :created_at
     field :roll_id, Integer
+    field :is_advantage, Boolean
   end
 end
