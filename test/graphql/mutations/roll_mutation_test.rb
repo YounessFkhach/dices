@@ -3,7 +3,7 @@ require 'test_helper'
 module Mutations
   class RollMutationTest < ActiveSupport::TestCase
     def perform(dices:)
-      Mutations::RollMutation.new(object: nil, field: nil, context: {}).resolve(dices: dices)
+      Mutations::RollMutation.new(object: nil, field: nil, context: {}).resolve(dices: dices, advantage: 'none')
     end
 
     test 'create a roll and with one dice' do
