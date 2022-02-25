@@ -58,7 +58,24 @@
             }
           ],
           "fields": [
+            {
+              "name": "id",
+              "description": null,
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null,
+              "args": [
 
+              ]
+            }
           ],
           "inputFields": null,
           "enumValues": null
@@ -545,7 +562,7 @@
             },
             {
               "name": "rolls",
-              "description": "List of rolls",
+              "description": "A string following the dice notation ex: \"2d12\" or \"1d4+2d20\"",
               "type": {
                 "kind": "NON_NULL",
                 "name": null,

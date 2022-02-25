@@ -2,13 +2,16 @@
   "name": "myapp",
   "private": true,
   "scripts": {
-    "relay": "yarn run relay-compiler $@"
+    "start": "yarn relay && yarn start && whata",
+    "relay": "relay-compiler $@"
   },
   "relay": {
-    "src": "./app/javascript/components/",
-    "schema": "./app/javascript/schema.graphql"
+    "src": "./app/javascript",
+    "schema": "./schema.graphql",
+    "language": "flow"
   },
   "dependencies": {
+    "@babel/plugin-syntax-flow": "^7.16.7",
     "@babel/preset-react": "^7.16.7",
     "@rails/webpacker": "5.4.3",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",

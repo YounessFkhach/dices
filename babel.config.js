@@ -16,6 +16,7 @@ module.exports = function(api) {
   }
 
   return {
+    sourceType: 'unambiguous',
     presets: [
       isTestEnv && [
         '@babel/preset-env',
@@ -23,7 +24,7 @@ module.exports = function(api) {
           targets: {
             node: 'current'
           },
-          modules: 'commonjs'
+          modules: false
         },
         '@babel/preset-react'
       ],

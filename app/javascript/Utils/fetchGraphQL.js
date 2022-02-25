@@ -1,4 +1,4 @@
-async function fetchGraphQL(text, variables) {
+async function fetchGraphQL(text, variables = null) {
   // Fetch data from GitHub's GraphQL API:
   const response = await fetch('/graphql', {
     method: 'POST',
@@ -6,6 +6,10 @@ async function fetchGraphQL(text, variables) {
       query: text,
       variables,
     }),
+    headers: {
+      Accept: 'application/json',
+      'Content-type': 'application/json',
+    }
   });
 
   // Get the response as JSON

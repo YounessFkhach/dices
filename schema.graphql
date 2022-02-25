@@ -16,6 +16,7 @@ enum Advantage {
 }
 
 interface BaseInterface {
+  id: ID!
 }
 
 type Dice implements BaseInterface {
@@ -116,7 +117,7 @@ type Query {
   roll(id: ID!): Roll!
 
   """
-  List of rolls
+  A string following the dice notation ex: "2d12" or "1d4+2d20"
   """
   rolls(
     """

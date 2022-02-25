@@ -1,5 +1,5 @@
 import React, { Suspense } from 'react';
-import graphql from 'react-relay';
+import graphql from 'babel-plugin-relay/macro';
 import {
   RelayEnvironmentProvider,
   loadQuery,
@@ -10,24 +10,28 @@ import RelayEnvironment from '../Utils/RelayEnvironment';
 
 // Define a query
 const RollsQuery = graphql`
-  query RollsQueryIds {
-    rolls {
-      id
+  query AppRollsQuery {
+    rolls(first: 10) {
+      nodes {
+        id
+        total
+      }
     }
   }
 `;
+
 
 const preloadedQuery = loadQuery(RelayEnvironment, RollsQuery);
 
 const App = ({ preloadedQuery }) => {
   const data = usePreloadedQuery(RollsQuery, preloadedQuery);
 
-  console.log(data);
-
   return (
     <div>
       <header>
-        <p>{data.name}</p>
+        {data && data.rolls.nodes.map((roll) => (
+          <p key={roll.id}>{roll.total}</p>
+        ))}
       </header>
     </div>
   );
@@ -37,7 +41,7 @@ const Root = () => {
   return (
     <RelayEnvironmentProvider environment={RelayEnvironment}>
       <Suspense fallback={'Loading...'}>
-        <App preloadedQuery={preloadedQuery} />
+        <App preloadedQuery={preloadedQuery}/>
       </Suspense>
     </RelayEnvironmentProvider>
   )
