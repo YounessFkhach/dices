@@ -5,5 +5,7 @@ module Types
     connection_type_class(Types::BaseConnection)
 
     field_class Types::BaseField
+
+    field :id, ID, null: false
   end
 end

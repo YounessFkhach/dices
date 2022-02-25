@@ -7,11 +7,7 @@ module Types
     # Add root-level fields here.
     # They will be entry points for queries on your schema.
 
-    field :rolls, Types::RollType.connection_type, null: false, description: "List of rolls"
-
-    def rolls
-      Roll.all
-    end
+    field :rolls, resolver: Queries::Rolls
 
     field :roll, Types::RollType, null: false do
       argument :id, ID, required: true

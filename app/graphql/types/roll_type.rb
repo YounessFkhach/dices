@@ -4,7 +4,6 @@ module Types
   class RollType < Types::BaseObject
     implements Types::BaseInterface
 
-    field :id, ID, null: false
     field :total, Integer, null: false, method: :total
     field :dices, Types::DiceType.connection_type
     field :advantage_dices, Types::DiceType.connection_type
