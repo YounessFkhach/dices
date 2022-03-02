@@ -6,7 +6,7 @@ module Mutations
     type Types::RollType
 
     def resolve(dices:, advantage:)
-      ::Services::RollCreator.new(dices: dices, advantage: advantage).call
+      ::Services::RollCreator.new(dices: dices, advantage: advantage, session_id: context[:session_id]).call
     end
   end
 end

@@ -11,6 +11,7 @@ class GraphqlController < ApplicationController
     context = {
       # Query context goes here, for example:
       # current_user: current_user,
+      session_id: session_id,
     }
     result = MyappSchema.execute(query, variables: variables, context: context, operation_name: operation_name)
     render json: result
@@ -20,6 +21,10 @@ class GraphqlController < ApplicationController
   end
 
   private
+
+  def session_id
+    session[:id] ||= SecureRandom.uuid
+  end
 
   # Handle variables in form data, JSON body, or a blank value
   def prepare_variables(variables_param)

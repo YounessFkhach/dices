@@ -2,14 +2,15 @@ module Services
   class RollCreator
     attr_accessor :dices, :advantage
 
-    def initialize(dices:, advantage:)
+    def initialize(dices:, advantage:, session_id:)
       @dices = dices
       @advantage = advantage
+      @session_id = session_id
     end
 
     def call
       # Initialize the roll record
-      roll = Roll.new(advantage_type: advantage)
+      roll = Roll.new(advantage_type: advantage, session_id: @session_id)
 
       # generate normal dices
       dices_payload = normal_dices_payload

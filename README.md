@@ -38,7 +38,7 @@ docker-compose run --rm web rails test
 ```graphql
 # Roll '2d6+1d12' formula with an advantage
 mutation Dices {
-  roll(input: { dices: '2d6+1d12', advantage: 'advantage' }) {
+  roll(input: { dices: "2de+1d12", advantage: advantage }) {
     total
     dices {
       nodes {
